@@ -1,35 +1,24 @@
 #include<stdio.h>
-
-
 void scheduling_and_priority();
 
-
 /*
-Consider a scheduling approach which is non pre-emptive similar to shortest job next in nature. The priority of each job is dependent on its estimated run time, and also the amount of time it has spent waiting. Jobs gain higher priority the longer they wait, which prevents indefinite postponement. The jobs that have spent a long time waiting compete against those estimated to have short run times. The priority can be computed as :  Priority = 1+ Waiting time / Estimated run time
+Considering a scheduling approach which is non pre-emptive similar to shortest job next in nature. The priority of each job is dependent on its estimated run time, and also the amount of time it has spent waiting. Jobs gain higher priority the longer they wait, which prevents indefinite postponement. The jobs that have spent a long time waiting compete against those estimated to have short run times. The priority can be computed as :  Priority = 1+ Waiting time / Estimated run time
 */
 
 int main()
 {
   
-
-  //calling the function 
   scheduling_and_priority();
   return 0;
 }
 
 /*
-NOTE : BELOW FUNCTON IS RESPONSIBLE FOR SCHEDULING AND SORTING ! 
+  below fuction is responsible for scheduling and sorting. 
 */
-
-
 void scheduling_and_priority(){
-
-
      printf("\t SCHEDULING STARTS HERE \n\n");
   long int n,i=0,j=0;
   //entering the no of the processes
-
-
   printf("Enter the total no of processes :");
   scanf("%ld",&n ); 
   double priority[n],avg_waiting,avg_turnaround,bTime[n],aTime[n],wTime[n],turn_a_TIME[n], process[n], tmpry, completionTime[n],min,sum=0,sum2=0,final_wait, turnaround_final, average_wait, t_avg;
@@ -52,8 +41,6 @@ void scheduling_and_priority(){
       printf("\n\n");
   }
 
-
-
 // SORTING UNIT STARTS HERE : 
 
   printf("\n\t NOTE : SORTING OF PROCESSES BEGINS HERE \n");
@@ -63,9 +50,7 @@ void scheduling_and_priority(){
     for(j=0;j<n;j++)
     {
       if(aTime[i]<aTime[j])
-      { 
-
-        
+      {         
         tmpry = bTime[j];
         bTime[j] = bTime[i];
         bTime [i] = tmpry;
@@ -94,8 +79,6 @@ for(i=0;i<n;i++){
       printf("\n\tBurst Time       : %0.0lf",bTime[i]);
       printf("\n\n");
   }
-
-
 
 //USING THE FORMULA , Arrival time is less than or equal to execution time 
 
@@ -154,11 +137,6 @@ for(i=0;i<n;i++){
       printf("\n\tTurn Around Time : %0.0lf" , turn_a_TIME[i]);
       printf("\n\n");
   }
-
-
-
-
-
 //Priority UNIT starts here 
 //Priority = 1+ Waiting time / Estimated run time  
 
